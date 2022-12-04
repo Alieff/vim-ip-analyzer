@@ -15,6 +15,7 @@ function! s:env_check()
       return 1
     endif
   endif
+  return 1
 endfunction 
 
 " plugin ================
