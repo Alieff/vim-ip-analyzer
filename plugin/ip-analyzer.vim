@@ -29,11 +29,10 @@ function! s:ip_to_binary(mode)
   let tempname = $TMPDIR."/".fnamemodify(tempname(), ":p:t")
   execute 'w '.tempname
   " warning error will not be outputed
-    if a:mode == 'f'
-      call system(g:ip_analyzer_virtual_python_path." ".g:ip_analyzer_plugin_path."/ip_to_binary.py ".tempname)
-    else
-      call system(g:ip_analyzer_virtual_python_path." ".g:ip_analyzer_plugin_path."/binary_to_ip.py ".tempname)
-    endif
+  if a:mode == 'f'
+    call system(g:ip_analyzer_virtual_python_path." ".g:ip_analyzer_plugin_path."/ip_to_binary.py ".tempname)
+  else
+    call system(g:ip_analyzer_virtual_python_path." ".g:ip_analyzer_plugin_path."/binary_to_ip.py ".tempname)
   endif
   execute 'e!'
   execute 'normal gg00vG$"sy'
